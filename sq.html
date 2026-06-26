@@ -50,7 +50,7 @@
         <label>图标 (emoji)</label>
         <input type="text" id="bookmarkIcon" placeholder="例如：🔍" maxlength="2">
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%">保存</button>
+      <button type="submit" class="btn btn-primary btn-full">保存</button>
     </form>
   </div>
 </div>
@@ -71,59 +71,53 @@
         <label>分类图标 (emoji)</label>
         <input type="text" id="catIcon" placeholder="例如：🔧" maxlength="2">
       </div>
-      <button type="submit" class="btn btn-success" style="width:100%">创建分类</button>
+      <button type="submit" class="btn btn-success btn-full">创建分类</button>
     </form>
   </div>
 </div>
 
 <!-- 导入书签弹窗 -->
 <div class="modal" id="importModal">
-  <div class="modal-content" style="max-width: 600px;">
+  <div class="modal-content wide">
     <div class="modal-header">
       <h2>导入浏览器书签</h2>
       <button class="modal-close" onclick="closeImportModal()">&times;</button>
     </div>
-    <p style="color: #aaa; margin-bottom: 20px; font-size: 14px;">
+    <p class="import-desc">
       支持导入 Chrome/Edge/Firefox 等浏览器导出的 HTML 书签文件。<br>
       <strong>步骤：</strong>浏览器书签管理 → 导出书签 → 选择文件导入
     </p>
-    
     <div class="import-zone" id="importZone" onclick="document.getElementById('importFile').click()">
       <div class="import-icon">📂</div>
       <div class="import-text">点击选择书签文件或拖放文件到此处</div>
       <div class="import-hint">支持 .html 格式</div>
     </div>
-    <input type="file" id="importFile" accept=".html,.htm" style="display:none" onchange="handleFileSelect(event)">
-    
-    <div id="importPreview" style="display:none; margin-top: 20px;">
+    <input type="file" id="importFile" accept=".html,.htm" class="hidden" onchange="handleFileSelect(event)">
+    <div id="importPreview" class="hidden">
       <div class="preview-header">
         <span>📋 解析结果</span>
         <span id="importStats"></span>
       </div>
       <div class="preview-content" id="previewContent"></div>
-      
-      <div class="form-group" style="margin-top: 15px;">
+      <div class="form-group mt15">
         <label>导入到分类</label>
         <select id="importCategory">
           <option value="new">新建分类（按原文件夹名）</option>
           <option value="existing">导入到现有分类</option>
         </select>
       </div>
-      
-      <div id="existingCatSelect" style="display:none;" class="form-group">
+      <div id="existingCatSelect" class="hidden form-group">
         <label>选择目标分类</label>
         <select id="targetCategory"></select>
       </div>
-      
       <div class="form-group">
         <label>
           <input type="checkbox" id="skipDuplicate" checked> 跳过已存在的网站（按URL判断）
         </label>
       </div>
-      
-      <div style="display:flex; gap:10px; margin-top:15px;">
-        <button class="btn btn-primary" style="flex:1" onclick="confirmImport()">确认导入</button>
-        <button class="btn btn-secondary" style="flex:1" onclick="closeImportModal()">取消</button>
+      <div class="import-actions">
+        <button class="btn btn-primary" onclick="confirmImport()">确认导入</button>
+        <button class="btn btn-secondary" onclick="closeImportModal()">取消</button>
       </div>
     </div>
   </div>
@@ -136,12 +130,12 @@
       <h2>导出数据</h2>
       <button class="modal-close" onclick="closeExportModal()">&times;</button>
     </div>
-    <p style="margin-bottom:15px;color:#888;">复制以下数据替换 .js 中的 bookmarks 数组：</p>
+    <p class="export-hint">复制以下数据替换 .js 中的 bookmarks 数组：</p>
     <div class="export-area">
       <pre id="exportContent"></pre>
     </div>
-    <button class="btn btn-primary" style="width:100%;margin-top:15px" onclick="copyExport()">复制到剪贴板</button>
-    <button class="btn btn-success" style="width:100%;margin-top:10px" onclick="downloadBookmarksJS()">下载 bookmarks.js</button>
+    <button class="btn btn-primary export-btn" onclick="copyExport()">复制到剪贴板</button>
+    <button class="btn btn-success export-btn" onclick="downloadBookmarksJS()">下载 bookmarks.js</button>
   </div>
 </div>
 
