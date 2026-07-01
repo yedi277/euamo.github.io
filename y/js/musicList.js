@@ -1261,7 +1261,7 @@ var musicList = [
         ]
     }, {
         name: "90非主流", // 播放列表名字
-        cover: " ", // 播放列表封面图像
+        cover: "https://p2.music.126.net/j2a6HL6hMKwamDQmIVgCwg==/109951162933404679.jpg?param=300y300", // 播放列表封面图像
         creatorName: " ", // 列表创建者名字(暂时没用到，可空)
         creatorAvatar: " ", // 列表创建者头像(暂时没用到，可空)
         item: [ // 这里面放歌曲
