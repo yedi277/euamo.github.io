@@ -2453,8 +2453,7 @@ var musicList = [
                 lyric_id: "",
                 pic: "",
                 url: "/fzl/鲸与风.m4a"
-            }"
-			]
+            }]
     }, 
     // 方式二：直接提供网易云歌单ID
 	{
