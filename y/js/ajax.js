@@ -128,8 +128,8 @@ function ajaxUrl(music, callback)
                     jsonData.url = jsonData.url.replace(/m7c.music./g, "m7.music.");
                     jsonData.url = jsonData.url.replace(/m8c.music./g, "m8.music.");
                 }
-            } else if(music.source == "baidu") {    // 解决百度音乐防盗链
-                jsonData.url = jsonData.url.replace(/http:\/\/zhangmenshiting.qianqian.com/g, "https://gss0.bdstatic.com/y0s1hSulBw92lNKgpU_Z2jR7b2w6buu");
+            } else if(music.source == "qianqian") {    // 千千音乐：直链 CORS 开放，无需防盗链处理
+                // worker 已返回 https 音频直链，浏览器可直接跨域播放，无需替换域名
             }
             
             if(jsonData.url === "") {
