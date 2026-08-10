@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平潭 8 人 4 天 3 晚行动手册 · 2026.08.13–08.16</title>
+<style>
+:root{
+  --bg:#0a1420;
+  --bg2:#0f1e2e;
+  --card:#132639;
+  --card2:#16304a;
+  --line:#1f4260;
+  --txt:#e6f1fa;
+  --txt2:#9fb8cd;
+  --txt3:#6d8aa3;
+  --cyan:#3ddbd9;
+  --blue:#4aa8ff;
+  --sand:#f5c86b;
+  --coral:#ff7a6b;
+  --green:#5fd39a;
+  --purple:#a78bfa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  line-height:1.75;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px 80px}
+
+/* ---------- header ---------- */
+header{
+  padding:52px 18px 40px;
+  background:
+    radial-gradient(900px 340px at 15% -10%, rgba(61,219,217,.20), transparent 65%),
+    radial-gradient(700px 300px at 88% 0%, rgba(74,168,255,.18), transparent 60%),
+    linear-gradient(180deg,#0d1c2c,#0a1420);
+  border-bottom:1px solid var(--line);
+}
+header .inner{max-width:940px;margin:0 auto}
+.kicker{color:var(--cyan);font-size:12px;letter-spacing:3px;font-weight:700;margin-bottom:14px}
+h1{font-size:34px;line-height:1.28;font-weight:800;letter-spacing:-.5px}
+h1 span{color:var(--cyan)}
+.sub{color:var(--txt2);margin-top:14px;font-size:15px;max-width:640px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.fact{
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:9px 14px;
+  font-size:13px;
+}
+.fact b{color:var(--cyan);font-weight:700}
+
+/* ---------- sections ---------- */
+section{margin-top:46px}
+h2{
+  font-size:22px;font-weight:800;letter-spacing:-.3px;
+  display:flex;align-items:center;gap:11px;
+  padding-bottom:13px;border-bottom:1px solid var(--line);margin-bottom:22px;
+}
+h2 .num{
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#05121d;width:28px;height:28px;border-radius:8px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;flex:0 0 auto;
+}
+h3{font-size:17px;font-weight:700;margin:26px 0 12px;color:var(--txt)}
+
+/* ---------- callout ---------- */
+.callout{
+  border-left:3px solid var(--coral);
+  background:linear-gradient(90deg,rgba(255,122,107,.11),rgba(255,122,107,.02));
+  border-radius:0 10px 10px 0;padding:15px 18px;margin:16px 0;font-size:14.5px;
+}
+.callout.ok{border-left-color:var(--green);background:linear-gradient(90deg,rgba(95,211,154,.11),rgba(95,211,154,.02))}
+.callout.tip{border-left-color:var(--sand);background:linear-gradient(90deg,rgba(245,200,107,.11),rgba(245,200,107,.02))}
+.callout.info{border-left-color:var(--blue);background:linear-gradient(90deg,rgba(74,168,255,.11),rgba(74,168,255,.02))}
+.callout b{color:#fff}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:13px;padding:17px 19px;
+}
+.card h4{font-size:15.5px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p{color:var(--txt2);font-size:13.5px;line-height:1.7}
+.tag{
+  display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;
+  background:rgba(61,219,217,.14);color:var(--cyan);font-weight:700;vertical-align:middle;
+}
+.tag.free{background:rgba(95,211,154,.14);color:var(--green)}
+.tag.pay{background:rgba(245,200,107,.14);color:var(--sand)}
+.tag.warn{background:rgba(255,122,107,.14);color:var(--coral)}
+.tag.star{background:rgba(167,139,250,.16);color:var(--purple)}
+
+/* ---------- timeline ---------- */
+.day{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:15px;margin-bottom:18px;overflow:hidden;
+}
+.day-head{
+  padding:16px 20px;background:linear-gradient(90deg,var(--card2),var(--card));
+  border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;
+}
+.day-head .d{font-size:19px;font-weight:800;color:var(--cyan)}
+.day-head .t{font-size:15px;font-weight:700}
+.day-head .meta{margin-left:auto;font-size:12.5px;color:var(--txt3)}
+.day-body{padding:8px 20px 18px}
+.slot{display:flex;gap:16px;padding:13px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.slot:last-child{border-bottom:none}
+.slot .time{
+  flex:0 0 72px;font-size:12.5px;font-weight:800;color:var(--sand);
+  padding-top:2px;font-variant-numeric:tabular-nums;
+}
+.slot .body{flex:1}
+.slot .name{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.slot .desc{color:var(--txt2);font-size:13.5px;line-height:1.72}
+.slot .desc em{color:var(--coral);font-style:normal;font-weight:600}
+.slot .desc strong{color:var(--cyan);font-weight:600}
+
+/* ---------- route map ---------- */
+.mapbox{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px;overflow-x:auto;
+}
+.mapbox svg{display:block;min-width:660px}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+th{
+  text-align:left;padding:11px 13px;background:var(--card2);
+  color:var(--cyan);font-weight:700;font-size:12.5px;letter-spacing:.5px;
+  border-bottom:1px solid var(--line);
+}
+td{padding:11px 13px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--txt2);vertical-align:top}
+td b{color:var(--txt);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tbl{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+th:first-child,td:first-child{padding-left:17px}
+
+/* ---------- list ---------- */
+ul.clean{list-style:none;margin:8px 0}
+ul.clean li{
+  position:relative;padding-left:20px;margin-bottom:9px;
+  color:var(--txt2);font-size:14px;line-height:1.72;
+}
+ul.clean li::before{
+  content:"";position:absolute;left:3px;top:10px;
+  width:6px;height:6px;border-radius:50%;background:var(--cyan);
+}
+ul.clean li b{color:var(--txt);font-weight:600}
+ul.clean.warn li::before{background:var(--coral)}
+ul.clean.gold li::before{background:var(--sand)}
+
+/* ---------- food ---------- */
+.food{display:flex;gap:13px;padding:13px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.food:last-child{border-bottom:none}
+.food .ico{
+  flex:0 0 38px;height:38px;border-radius:10px;
+  background:rgba(245,200,107,.13);color:var(--sand);
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+}
+.food .n{font-weight:700;font-size:14.5px}
+.food .d{color:var(--txt2);font-size:13px;line-height:1.65;margin-top:2px}
+.price{color:var(--sand);font-weight:700;font-size:12.5px}
+
+.foot{
+  margin-top:56px;padding-top:22px;border-top:1px solid var(--line);
+  color:var(--txt3);font-size:12.5px;line-height:1.9;
+}
+@media(max-width:720px){
+  h1{font-size:26px}
+  .g2,.g3{grid-template-columns:1fr}
+  .slot{gap:10px}
+  .slot .time{flex:0 0 58px;font-size:11.5px}
+  .day-head .meta{margin-left:0;width:100%}
+  body{font-size:14.5px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="kicker">PINGTAN · 海坛岛 · 8 人小团</div>
+    <h1>平潭 <span>4 天 3 晚</span> 行动手册<br>2026.08.13 → 08.16</h1>
+    <p class="sub">8 人 / 4 间房 / 13 日 17:40 抵达平潭站。北线一次串完你要的全部目标点，南线补齐地标，剩余时间自由玩水。下面每一条都可直接执行。</p>
+    <div class="facts">
+      <div class="fact">🚄 抵达 <b>8/13 17:40 平潭站</b></div>
+      <div class="fact">👥 <b>8 人 · 4 间房</b></div>
+      <div class="fact">🌅 日出 <b>约 05:35</b> · 日落 <b>约 18:50</b></div>
+      <div class="fact">🌊 农历月初 · <b>大潮汛 + 无月夜</b></div>
+      <div class="fact">💰 人均预算 <b>¥1600–2100</b>（不含往返大交通）</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 0. 先看这个 ============ -->
+<section>
+  <h2><span class="num">!</span>出发前必须先解决的 4 件事</h2>
+
+  <div class="callout">
+    <b>① 台风：这是 8 月去平潭唯一的真风险。</b><br>
+    13 号台风「白海豚」8 月 9–10 日影响浙闽，福建省防指已于 <b>8 月 10 日 12 时终止防台风应急响应</b>，8 月 11–12 日仍有台风残余环流带来的阵雨/雷阵雨，13 日起大概率转晴热。<br>
+    但 8 月中下旬西太平洋随时可能有新台风生成，<b>从生成到影响福建往往只有 2–3 天</b>。出发前一天和每天早上，固定看两个渠道：微信公众号「<b>中国平潭</b>」「<b>福建气象</b>」。<br>
+    一旦发布台风蓝色以上预警：<em>所有海边景点会关闭、渔船回港、平潭海峡公铁大桥可能限速或封闭、高铁可能停运</em>。这不是吓唬人，是常态操作。订票订房时优先选<b>可免费取消</b>的。
+  </div>
+
+  <div class="callout tip">
+    <b>② 车：8 个人别指望公交和打车。</b>
+    平潭景点极度分散，北线单程 30 公里以上，岛上公交班次少、网约车在北线基本叫不到车。<b>唯一正确解是包车或租两辆车。</b>详见「交通」章节。<b>现在就订</b>，8 月周末车源紧张。
+  </div>
+
+  <div class="callout tip">
+    <b>③ 房：8/15、8/16 是周六周日，暑期旺季周末房价上浮 30%–50%。</b>
+    4 间房要订在同一栋/同一层才方便，越晚越难凑齐。<b>今天就下单。</b>
+  </div>
+
+  <div class="callout ok">
+    <b>④ 好消息：你们这几天的追泪条件很好。</b>
+    8 月的蓝眼泪是<b>海萤型</b>（颗粒更亮、更清晰、持续时间更久，比春季的夜光藻型好拍），而 8 月 13–16 日正处<b>农历月初</b>，月亮又细又早落，<b>夜里几乎没有月光干扰</b>——这是追泪成功率最高的条件之一。同时月初是<b>大潮汛</b>，潮差大，赶海和退潮拍照效果好，但<em>涨潮也快，礁石区必须格外小心</em>。
+  </div>
+</section>
+
+<!-- ============ 1. 地理认知 ============ -->
+<section>
+  <h2><span class="num">1</span>先搞懂平潭的地理，不然一定绕路</h2>
+
+  <div class="callout info">
+    <b>核心认知：你列的 5 个目标里，4 个在同一条线上。</b><br>
+    「北部生态廊道」不是一个景点，它是<b>一整条约 30 公里的滨海景观带</b>（沿 S501 / 环岛路，从苏澳、长江澳一路向东到流水镇），<b>镜沙、长江澳风车田、猫头墘、磹水村、仙人井全都是挂在这条线上的点位</b>。<br>
+    所以：<b>北线一天全部串完</b>，剩下的只有龙王头（在县城，随时能去）。你们时间很宽裕，可以额外加南线和跳岛。
+  </div>
+
+  <h3>三大板块与距离感</h3>
+  <div class="tbl">
+    <table>
+      <tr><th>板块</th><th>包含</th><th>距平潭站</th><th>玩法定位</th></tr>
+      <tr>
+        <td><b>县城 / 龙王头</b></td>
+        <td>龙王头沙滩、翠园夜市、海坛古城、台湾小镇、海鲜市场</td>
+        <td>约 12 km / 20 分钟</td>
+        <td>吃住大本营，日出、正规浴场游泳</td>
+      </tr>
+      <tr>
+        <td><b>北线（北部生态廊道）</b></td>
+        <td>仙人井、北港村、镜沙、观景台群、猫头墘、磹水村、<b>长江澳风车田</b></td>
+        <td>约 25–32 km / 40–50 分钟</td>
+        <td>全岛风景天花板，日落 + 追泪主场</td>
+      </tr>
+      <tr>
+        <td><b>南线</b></td>
+        <td>猴研岛（68 海里）、坛南湾、象鼻湾、将军山、石牌洋、壳丘头遗址博物馆</td>
+        <td>约 14–20 km / 25–30 分钟</td>
+        <td>地标打卡 + 白金沙滩玩水</td>
+      </tr>
+    </table>
+  </div>
+  <p style="color:var(--txt3);font-size:12.5px;margin-top:9px">※ 里程与车程为估算值，实际以当天导航为准；旺季长江澳、北港村路段会堵。</p>
+
+  <h3>北线一日路线示意（不走回头路）</h3>
+  <div class="mapbox">
+    <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="rd" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#3ddbd9"/>
+          <stop offset="55%" stop-color="#4aa8ff"/>
+          <stop offset="100%" stop-color="#f5c86b"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="680" height="250" fill="#132639" rx="10"/>
+      <text x="24" y="30" fill="#6d8aa3" font-size="11" font-family="sans-serif" letter-spacing="1.5">DAY 1 · 北部生态廊道 由东向西推进 · 全程约 45 km</text>
+
+      <path d="M 55 110 C 150 60, 230 165, 320 112 S 500 60, 625 118"
+            stroke="url(#rd)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+      <!-- nodes -->
+      <g font-family="sans-serif">
+        <circle cx="55" cy="110" r="9" fill="#3ddbd9"/>
+        <text x="55" y="90" fill="#e6f1fa" font-size="12.5" font-weight="700" text-anchor="middle">仙人井</text>
+        <text x="55" y="140" fill="#6d8aa3" font-size="10.5" text-anchor="middle">09:30 海蚀竖井</text>
+        <text x="55" y="155" fill="#f5c86b" font-size="10" text-anchor="middle">¥33</text>
+
+        <circle cx="185" cy="88" r="9" fill="#4aa8ff"/>
+        <text x="185" y="68" fill="#e6f1fa" font-size="12.5" font-weight="700" text-anchor="middle">北港村</text>
+        <text x="185" y="118" fill="#6d8aa3" font-size="10.5" text-anchor="middle">11:30 石头厝午餐</text>
+        <text x="185" y="133" fill="#5fd39a" font-size="10" text-anchor="middle">免费</text>
+
+        <circle cx="320" cy="112" r="9" fill="#4aa8ff"/>
+        <text x="320" y="92" fill="#e6f1fa" font-size="12.5" font-weight="700" text-anchor="middle">镜沙</text>
+        <text x="320" y="142" fill="#6d8aa3" font-size="10.5" text-anchor="middle">14:30 黑礁石</text>
+        <text x="320" y="157" fill="#5fd39a" font-size="10" text-anchor="middle">免费</text>
+
+        <circle cx="465" cy="82" r="9" fill="#a78bfa"/>
+        <text x="465" y="62" fill="#e6f1fa" font-size="12.5" font-weight="700" text-anchor="middle">猫头墘 / 磹水</text>
+        <text x="465" y="112" fill="#6d8aa3" font-size="10.5" text-anchor="middle">16:30 观景台群</text>
+        <text x="465" y="127" fill="#5fd39a" font-size="10" text-anchor="middle">免费</text>
+
+        <circle cx="625" cy="118" r="10" fill="#f5c86b"/>
+        <text x="625" y="98" fill="#e6f1fa" font-size="12.5" font-weight="700" text-anchor="middle">长江澳</text>
+        <text x="625" y="148" fill="#6d8aa3" font-size="10.5" text-anchor="middle">18:20 风车日落</text>
+        <text x="625" y="163" fill="#ff7a6b" font-size="10" text-anchor="middle">→ 原地追泪</text>
+      </g>
+
+      <rect x="24" y="195" width="632" height="36" rx="8" fill="#16304a"/>
+      <text x="40" y="218" fill="#9fb8cd" font-size="11.5" font-family="sans-serif">
+        关键：日落定在最后一站。19:00 天黑后不要急着回县城，21:00 起就地蹲蓝眼泪，成功率最高。
+      </text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 2. 行程 ============ -->
+<section>
+  <h2><span class="num">2</span>逐日行程（含备选与压缩方案）</h2>
+
+  <!-- DAY 0 -->
+  <div class="day">
+    <div class="day-head">
+      <span class="d">DAY 0</span>
+      <span class="t">8/13 周四 · 落地 + 安顿 + 夜市</span>
+      <span class="meta">强度 ★☆☆☆☆ · 别安排任何远点</span>
+    </div>
+    <div class="day-body">
+      <div class="slot">
+        <div class="time">17:40</div>
+        <div class="body">
+          <div class="name">抵达平潭站</div>
+          <div class="desc">出站后直接找<strong>提前约好的司机/租车行接站</strong>。<em>高铁站门口拉客的黑车一律不要坐</em>，宰客且无保障。8 人加行李，出站集合点先统一说好（一般在出站口右侧网约车/大巴上客区）。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">18:15</div>
+        <div class="body">
+          <div class="name">入住县城 / 龙王头片区</div>
+          <div class="desc">车程约 20–25 分钟。放行李、洗把脸，<strong>15 分钟内出门</strong>，别在酒店瘫。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">19:00</div>
+        <div class="body">
+          <div class="name">龙王头沙滩看晚霞 + 踩海水</div>
+          <div class="desc">8 月中旬日落约 18:50，天完全黑约 19:30，还有一段蓝调时间。龙王头是<strong>正规海滨浴场</strong>，沙缓、有救生员，第一晚只散步踩水，别下深水。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">20:00</div>
+        <div class="body">
+          <div class="name">翠园夜市 / 县城海鲜排档 — 接风第一顿</div>
+          <div class="desc">8 人正好一大桌。第一顿建议吃<strong>本地海鲜排档</strong>（点单前务必看清明码标价、称重当面确认），配几样小吃：时来运转、海蛎饼、八珍炒糕。<em>第一晚不要暴食海鲜</em>，肠胃需要适应期，后面还有三天。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">21:30</div>
+        <div class="body">
+          <div class="name">回酒店，早睡</div>
+          <div class="desc">明天是全程强度最高的一天，<strong>07:30 必须出发</strong>。当晚把防晒、帽子、防滑鞋、充电宝、外套全部装包放门口。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day">
+    <div class="day-head">
+      <span class="d">DAY 1</span>
+      <span class="t">8/14 周五 · 北部生态廊道全线 + 风车日落 + 追蓝眼泪</span>
+      <span class="meta">强度 ★★★★★ · 全天车程约 100 km · 本行程核心</span>
+    </div>
+    <div class="day-body">
+      <div class="slot">
+        <div class="time">07:30</div>
+        <div class="body">
+          <div class="name">出发（务必准时）</div>
+          <div class="desc">县城早餐随便解决：鼎边糊 / 海鲜面 / 锅边。<strong>路上便利店买足水，北线部分路段没有补给。</strong></div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">09:00</div>
+        <div class="body">
+          <div class="name">仙人井（东海仙境） <span class="tag pay">约 ¥33/人</span></div>
+          <div class="desc">流水镇东美村。巨型海蚀竖井直通大海，浪打进洞里的声音非常震撼，是全岛最有"地质感"的点。<br>
+          <em>安全：礁石常年湿滑，必须穿防滑运动鞋，禁止翻越护栏下到崖边拍照。</em>上午光线好、人少。<strong>60–69 岁半价，1.2 m 以下 / 70 岁以上免票，带好身份证和优待证件。</strong></div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">11:00</div>
+        <div class="body">
+          <div class="name">北港文创村 <span class="tag free">免费</span></div>
+          <div class="desc">彩色石头厝渔村，网红咖啡店和文创小店密集，巷子里随便拍。<strong>午餐就在村里吃</strong>——渔家菜或海鲜面，比景区门口便宜。8 人建议提前打电话订一桌。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">13:30</div>
+        <div class="body">
+          <div class="name">最美环岛路（北港 → 镜沙段）</div>
+          <div class="desc">这段本身就是景点：沿海公路 + 风车 + 碧海。<strong>看到好机位就靠边停车拍</strong>（务必停进正规停车位，别占车道）。这段路的照片是整趟行程质量最高的。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">14:30</div>
+        <div class="body">
+          <div class="name">镜沙（黑沙滩 · 人称"小冰岛"） <span class="tag free">免费</span></div>
+          <div class="desc">君山镇镜沙村，大片黑灰色礁石与岩洞，穿深色或亮色衣服都出片，阴天氛围更强。周边停车位很多（镜沙大王宫停车场、半坡镜沙停车场、邹厝头网红黑洞停车场等）。<br>
+          <em>⚠️ 这里是全程安全风险最高的点：退潮时去，务必查当日潮汐表；礁石湿滑必穿防滑鞋；涨潮前提前撤离；绝对禁止下水游泳。8 月正值大潮汛，涨潮速度比你想的快。</em></div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">16:00</div>
+        <div class="body">
+          <div class="name">猫头墘 / 磹水村 / 廊道观景台群 <span class="tag free">免费</span></div>
+          <div class="desc">北部生态廊道的精华段：临海玻璃栈道、多个观景平台（F1–F5 一线）、海边秋千（部分收费）、悬崖俯瞰风车海。<strong>体力好的可以在廊道上走一段栈道</strong>，不想走的在观景台喝东西看海也很好。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">17:40</div>
+        <div class="body">
+          <div class="name">长江澳风车田 <span class="tag free">免费</span> <span class="tag star">全程 C 位</span></div>
+          <div class="desc">巨大白色风车矗立在金色沙滩上，<strong>18:20–18:55 是黄金时段</strong>，橘子海 + 风车剪影。退潮时浅滩会形成"天空之镜"倒影，这是平潭最著名的一张照片。<br>
+          <strong>8 人合影就在这里拍</strong>。提前 40 分钟到位占机位，旺季日落前停车场会满。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">19:15</div>
+        <div class="body">
+          <div class="name">附近晚餐（不要回县城）</div>
+          <div class="desc">长江澳、磹水村一带有渔家餐馆和民宿餐厅。<strong>吃完就地待命，等 21:00 追泪。</strong>来回跑县城会白白浪费两小时且大概率放弃追泪。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">21:00</div>
+        <div class="body">
+          <div class="name">追蓝眼泪 🌊 <span class="tag">看运气</span></div>
+          <div class="desc"><strong>点位</strong>：长江澳、北部生态廊道沿线海滩、坛南湾（远垱澳）。<br>
+          <strong>时间</strong>：21:00–凌晨 1:00，<strong>涨潮前后浪打礁石时最亮</strong>。<br>
+          <strong>条件</strong>：8 月是海萤型，你们赶上农历月初、几乎无月光，条件很好。找<strong>没有路灯和人造光的黑暗海滩</strong>，到了先关手电，眼睛适应 10 分钟再看。<br>
+          <strong>拍摄</strong>：手机开专业/夜景模式，ISO 1600–3200、快门 5–15 秒，<strong>必须用三脚架</strong>（这是唯一的硬件门槛，带一个）。<br>
+          <em>⚠️ 蓝眼泪是自然现象，看不到很正常，别买任何"包看到"的收费团。夜间海边完全没有照明，必须结伴、带头灯、远离水线、绝不下水。</em></div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">22:30</div>
+        <div class="body">
+          <div class="name">返回县城</div>
+          <div class="desc">夜间环岛路无路灯、弯多、侧风大，<strong>让司机慢开</strong>。这也是推荐包车而非自驾的核心理由。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day">
+    <div class="day-head">
+      <span class="d">DAY 2</span>
+      <span class="t">8/15 周六 · 南线地标 + 坛南湾玩水</span>
+      <span class="meta">强度 ★★★☆☆ · 昨天累了，今天松一点</span>
+    </div>
+    <div class="day-body">
+      <div class="slot">
+        <div class="time">05:20</div>
+        <div class="body">
+          <div class="name">龙王头看日出 <span class="tag">自愿参加</span></div>
+          <div class="desc">日出约 05:35，酒店走路就到。<strong>不强求全员，愿意起的去，其余人睡到 8 点。</strong>8 人团最忌讳强制统一行动。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">09:00</div>
+        <div class="body">
+          <div class="name">猴研岛 · 68 海里景区 <span class="tag pay">约 ¥66/人</span></div>
+          <div class="desc">澳前镇东澳村，<strong>祖国大陆距离中国台湾岛最近的地方（68 海里）</strong>。海峡之眼拱门、同心石、黑白礁石群、红色灯塔，是很有意义的打卡点。<br>
+          <em>这里风极大，帽子一定要有系带，防晒帽会被吹跑。</em>另有快艇体验项目（约 ¥88）。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">11:30</div>
+        <div class="body">
+          <div class="name">午餐：澳前 / 台湾小镇 或 返回县城</div>
+          <div class="desc">澳前有渔港，海鲜新鲜。台湾小镇可以买些进口零食伴手礼，逛 30 分钟足够，别久留。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">14:00</div>
+        <div class="body">
+          <div class="name">坛南湾 · 白金沙滩 <span class="tag free">免费</span> <span class="tag star">今天重点</span></div>
+          <div class="desc">全岛沙质最细的沙滩，海水清澈。<strong>整个下午就泡在这</strong>：玩水、桨板、沙滩排球、躺平。这是 8 人团最容易玩开心的环节，不要塞太多景点。<br>
+          <em>只在划定的浴场范围内下水，不要往两侧礁石区游。太阳最毒的 12:00–15:00 尽量在遮阳伞下。</em></div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">16:30</div>
+        <div class="body">
+          <div class="name">象鼻湾（可选，看潮汐） <span class="tag free">免费</span></div>
+          <div class="desc">退潮时露出形似象鼻的拖尾沙滩。<strong>没有无人机的话观感会打折</strong>，涨潮期直接跳过，把时间还给坛南湾。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">18:00</div>
+        <div class="body">
+          <div class="name">晚餐：坛南湾海鲜大排档 或 回县城</div>
+          <div class="desc">坛南湾一带有渔船直供的老牌排档。<strong>省钱高阶玩法</strong>：白天去西航农贸市场自己挑海鲜，拿到加工店代加工，比景区排档便宜近一半，8 人量大更划算。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">21:00</div>
+        <div class="body">
+          <div class="name">追泪第二次机会（如昨晚没看到）</div>
+          <div class="desc">坛南湾远垱澳是另一个高概率点位。两晚都试，命中率会明显提高。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day">
+    <div class="day-head">
+      <span class="d">DAY 3</span>
+      <span class="t">8/16 周日 · 三选一（按当天天气和体力定）</span>
+      <span class="meta">强度 自选 · 建议前一晚投票决定</span>
+    </div>
+    <div class="day-body">
+      <div class="slot">
+        <div class="time">方案 A</div>
+        <div class="body">
+          <div class="name">跳岛 · 东庠岛一日游 <span class="tag star">最推荐给还有精力的人</span></div>
+          <div class="desc">从流水码头坐轮渡上岛，原始渔村、彩色石头厝、海钓，游客少，是"真·平潭"。<br>
+          <em>硬条件：必须提前查轮渡班次和售票，风浪大会停航，出发前一天务必确认。晕船的人慎选。</em></div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">方案 B</div>
+        <div class="body">
+          <div class="name">人文 + 补玩：壳丘头遗址博物馆 → 石牌洋 → 将军山</div>
+          <div class="desc"><b>壳丘头南岛语族博物馆</b>：室内、空调、有深度，讲南岛语族从平潭出发扩散到太平洋的故事，<strong>下雨天的最佳备选</strong>（可与仙人井买联票约 ¥78）。<br>
+          <b>石牌洋</b>：巨型海蚀石柱像双帆，景区门票几乎免费但需另付船票（约 ¥25）。<br>
+          <b>将军山</b>：约 ¥19，纪念碑之巅看山海，晚上有《岚起山海图》灯光演出（约 ¥138 双人票，感兴趣可加）。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">方案 C</div>
+        <div class="body">
+          <div class="name">躺平版：睡到自然醒 → 龙王头玩水 → 海坛古城采购伴手礼</div>
+          <div class="desc">连着两天暴走后，8 人里大概率有人已经不想动了。<strong>这个方案完全不丢人</strong>。<br>
+          <em>说明：海坛古城是人造商业街，评价两极，只建议当作买伴手礼和吃小吃的地方，别抱期待。</em>伴手礼买：平潭紫菜、鱼干海鲜干货、鱼丸。</div>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="time">晚上</div>
+        <div class="body">
+          <div class="name">告别宴 + 收行李</div>
+          <div class="desc">挑一家评分高的本地菜馆，把佛跳墙、海鲜煲这类硬菜安排上。当晚确认明天车次和退房时间。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day">
+    <div class="day-head">
+      <span class="d">DAY 4</span>
+      <span class="t">8/17 周一 · 返程</span>
+      <span class="meta">强度 ★☆☆☆☆</span>
+    </div>
+    <div class="day-body">
+      <div class="slot">
+        <div class="time">上午</div>
+        <div class="body">
+          <div class="name">机动：早餐 → 退房 → 视车次安排</div>
+          <div class="desc">车次在中午后的，可再去龙王头走一圈或补买伴手礼。<strong>提前 1 小时到平潭站</strong>，8 人加行李过安检慢，旺季站内排队长。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <b>只玩三天（8/13–8/15，16 日走）怎么砍？</b><br>
+    砍掉 DAY 3 整天，并把 DAY 2 压缩：<b>猴研岛（上午）→ 坛南湾（下午玩到日落）</b>，放弃象鼻湾和将军山。<br>
+    <b>DAY 1 北线一天绝对不能砍</b>——那是你此行全部核心目标的所在地。宁可砍南线，也别动北线。
+  </div>
+</section>
+
+<!-- ============ 3. 交通 ============ -->
+<section>
+  <h2><span class="num">3</span>交通：8 人怎么走最省心</h2>
+
+  <div class="grid g3">
+    <div class="card" style="border-color:var(--cyan)">
+      <h4>🚐 包车带司机 <span class="tag">首选</span></h4>
+      <p><b>方式</b>：包一辆 9–14 座商务车/中巴，含司机，按天计费。<br>
+      <b>参考价</b>：约 ¥800–1200/天（旺季上浮，含司机不含门票餐费）。<br>
+      <b>优点</b>：8 人 + 行李一车装下；司机熟路、知道机位和停车场；<b>晚上追泪的夜路有人开</b>；不用操心停车。<br>
+      <b>缺点</b>：贵一点，行程略受司机节奏影响（提前把行程发给他）。</p>
+    </div>
+    <div class="card">
+      <h4>🚗 租两辆 7 座自驾</h4>
+      <p><b>参考价</b>：约 ¥400–600/辆/天 + 油费 + 过路费。<br>
+      <b>优点</b>：自由度最高，便宜些。<br>
+      <b>缺点</b>：<b>两车容易走散</b>（必须建群实时共享位置）；环岛路弯多、侧风极大；旺季长江澳/北港停车位难找；夜间无路灯路段对新手不友好。<b>需要两个开车稳的人。</b></p>
+    </div>
+    <div class="card">
+      <h4>🛵 小电驴</h4>
+      <p><b>参考价</b>：旺季 ¥80–120/辆/天。<br>
+      <b>结论</b>：<b>8 人团不推荐当主力</b>。北线单日往返约 80–100 km，必须确认续航 100 km 以上，4 辆车里只要一辆没电，全队卡死。<br>
+      <b>正确用法</b>：只在县城/龙王头短途代步，或某天单独安排一次环岛骑行。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>交通红线</b><br>
+    ① <em>平潭站门口的黑车一律不上</em>，提前约好车或让租车行来接。<br>
+    ② 平潭海峡公铁大桥<b>大风时会限速甚至封闭</b>，如遇台风预警，提前改签高铁。<br>
+    ③ 环岛路侧风大，<b>不要开快车</b>，靠边停车拍照必须停进正规车位，不要占车道。<br>
+    ④ 岛上部分景区路段旺季会临时管制，出发前让司机确认。
+  </div>
+</section>
+
+<!-- ============ 4. 住宿 ============ -->
+<section>
+  <h2><span class="num">4</span>住宿：8 人 4 间房，住哪、怎么订</h2>
+
+  <div class="callout ok">
+    <b>结论先给：4 晚全部住县城 / 龙王头片区，不要换酒店。</b><br>
+    理由：① 8 人 4 间房中途换店，行李搬运和退换房极其折腾；② 龙王头片区<b>去南北线车程均等</b>，是全岛地理中心；③ 吃的最多最便宜（夜市 + 海鲜市场 + 排档），8 人吃饭选择多；④ 同价位房型比海景民宿便宜近一半，且更容易一次订到 4 间同栋房。
+  </div>
+
+  <h3>四大片区对比</h3>
+  <div class="tbl">
+    <table>
+      <tr><th>片区</th><th>优点</th><th>缺点</th><th>参考房价</th><th>8 人团适配</th></tr>
+      <tr>
+        <td><b>县城 / 龙王头</b><br><span class="tag">推荐</span></td>
+        <td>吃喝最方便、租车点多、正规浴场、能看日出、南北线折中、性价比最高</td>
+        <td>不是纯海景，夜市一带略吵（选背街户型）</td>
+        <td>¥200–450/间/晚</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td><b>坛南湾</b></td>
+        <td>沙滩最美最安静、<b>追蓝眼泪最方便</b>、民宿颜值高</td>
+        <td>吃饭选择少且贵、去北线远、夜里没什么可干</td>
+        <td>¥300–900/间/晚</td>
+        <td>★★★☆☆</td>
+      </tr>
+      <tr>
+        <td><b>北港村 / 长江澳</b></td>
+        <td>石头厝海景、推窗见海、离北线景点最近、拍照氛围顶级</td>
+        <td>最贵、离县城最远（约 30 km）、餐饮和补给不便</td>
+        <td>¥400–800/间/晚</td>
+        <td>★★☆☆☆</td>
+      </tr>
+      <tr>
+        <td><b>猫头墘 / 玉堂村</b></td>
+        <td>极小众安静、悬崖风车视野</td>
+        <td>配套最弱，几乎必须有车</td>
+        <td>¥250–500/间/晚</td>
+        <td>★★☆☆☆</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <b>如果你们就是想住一晚海景（可接受折腾）</b><br>
+    折中方案：<b>前 2 晚县城 + 第 3 晚坛南湾或北港村</b>。把换店那天安排成 DAY 2 结束后（当晚就在坛南湾追泪，第二天直接玩南线），这样搬一次行李换来一晚海景 + 一次零距离追泪，是唯一划算的换店时机。<b>但如果队里有老人小孩，就别折腾。</b>
+  </div>
+
+  <h3>订房执行清单</h3>
+  <ul class="clean gold">
+    <li><b>今天就订。</b>8/15、8/16 是周六周日，暑期旺季房源消耗快，越晚越贵。</li>
+    <li><b>优先选可免费取消的</b>——台风季这条能救命。</li>
+    <li>下单前电话确认：<b>4 间房是否在同一栋同一层</b>、是否有免费停车位（8 人团一定有车）。</li>
+    <li>确认<b>空调制冷效果和隔音</b>。8 月平潭白天 30℃+，海边民宿老房子空调不行会睡不着。</li>
+    <li>看真实带图评价，<b>警惕"虚假海景"</b>（照片是天台拍的，房间根本看不到海）。</li>
+    <li>如果只订到 3 间大房，考虑 2 间大床房 + 2 间双床房的组合，提前和房东说清 8 人入住，避免加人费争议。</li>
+  </ul>
+</section>
+
+<!-- ============ 5. 吃 ============ -->
+<section>
+  <h2><span class="num">5</span>吃：小吃清单 + 排档打法</h2>
+
+  <h3>灵魂小吃（人均几块到二十几，全部必尝）</h3>
+  <div class="card">
+    <div class="food">
+      <div class="ico">🥟</div>
+      <div><div class="n">时来运转（咸米时） <span class="price">约 ¥8/个</span></div>
+      <div class="d">平潭第一小吃，没有之一。地瓜粉做的软糯外皮，包着海蛎、肉末、紫菜、包菜的馅。名字讨彩头，来平潭第一口就吃它。老店：十三妹咸米时、王三姐咸米时。</div></div>
+    </div>
+    <div class="food">
+      <div class="ico">🧆</div>
+      <div><div class="n">海蛎饼 <span class="price">约 ¥5/个</span></div>
+      <div class="d">现炸，外酥里嫩，海蛎鲜甜。街边摊就有，看到排队的就买。</div></div>
+    </div>
+    <div class="food">
+      <div class="ico">🍠</div>
+      <div><div class="n">八珍炒糕 <span class="price">约 ¥20/份</span></div>
+      <div class="d">地瓜粉炒制，加海鲜和花生，糯叽叽 Q 弹。老店：郑秋发。</div></div>
+    </div>
+    <div class="food">
+      <div class="ico">🥠</div>
+      <div><div class="n">天长地久（甜饺）</div>
+      <div class="d">和"时来运转"配套的甜口版本，讨口彩，尝个新鲜。</div></div>
+    </div>
+    <div class="food">
+      <div class="ico">🍲</div>
+      <div><div class="n">海鲜粥 / 砂锅粥 <span class="price">¥20–30/碗</span></div>
+      <div class="d">现捞虾蟹熬制，鲜到眉毛掉。适合作为宵夜或追泪回来的暖胃收尾。</div></div>
+    </div>
+    <div class="food">
+      <div class="ico">🍥</div>
+      <div><div class="n">平潭鱼丸 / 鱼面 / 鼎边糊</div>
+      <div class="d">鱼丸 Q 弹带汤汁，是最好的早餐组合。鼎边糊配油条，本地人的日常早饭。</div></div>
+    </div>
+    <div class="food">
+      <div class="ico">🫧</div>
+      <div><div class="n">冰镇海石花</div>
+      <div class="d">海藻做的凉粉，加糖水冰镇，8 月暴晒天的救命解暑神器。街边小摊都有。</div></div>
+    </div>
+  </div>
+
+  <h3>海鲜大餐：8 人怎么点不踩坑</h3>
+  <div class="grid g2">
+    <div class="card" style="border-color:var(--green)">
+      <h4>💰 最省钱：市场自购 + 代加工</h4>
+      <p>去<b>西航农贸市场</b>（或县城海鲜市场）自己挑，拿到旁边的加工店做，加工费按份收。<b>比景区排档便宜近一半</b>，8 人量大优势最明显。<br>
+      要点：挑活的、当场称重、拍下重量；加工前和店家谈好每道菜做法和加工费。</p>
+    </div>
+    <div class="card">
+      <h4>🦐 省事：县城老牌排档</h4>
+      <p>网传口碑较好的本地店：<b>岚三喜·小海鲜（平潭菜，佛跳墙量大）、海先生大排档（皮皮虾出名）、水哥小海鲜（本地人常去，人均约 ¥55）、海市大排档、肥婆肥仔海鲜档（蒸汽海鲜）、坛南湾阿强农家乐</b>。<br>
+      人均 ¥70–100 能吃很好。<b>去之前先在地图/点评 App 看最新评分和营业状态，旺季务必提前打电话订大桌。</b></p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>吃的红线</b><br>
+    ① <em>不要在景区门口和网红打卡点旁边吃饭</em>，往县城、龙凤路方向走能便宜 30% 以上。<br>
+    ② 点海鲜<b>必须明码标价、当面称重</b>，先问价再下单，别让店家"看着上"。<br>
+    ③ <b>海鲜适量，别贪多。</b>连吃几天大量生猛海鲜，肠胃出问题的概率不低。<b>随身备好蒙脱石散、藿香正气、益生菌</b>。海鲜过敏体质提前吃药或直接避开。<br>
+    ④ 生腌、醉蟹这类生食，8 月高温季<b>建议直接跳过</b>。<br>
+    ⑤ 别喝街边来路不明的散装冰饮。
+  </div>
+</section>
+
+<!-- ============ 6. 注意事项 ============ -->
+<section>
+  <h2><span class="num">6</span>出行注意事项（按重要性排序）</h2>
+
+  <h3>🔴 一级：可能出人命的</h3>
+  <ul class="clean warn">
+    <li><b>只在正规浴场下水。</b>全岛只有<b>龙王头</b>和<b>坛南湾</b>划定浴场区有救生员和安全设施。<b>镜沙、长江澳、象鼻湾、猴研岛、仙人井一带全部禁止下水</b>——暗流、离岸流、水下礁石，每年都出事。这条没有商量余地。</li>
+    <li><b>礁石区必查潮汐表。</b>镜沙、象鼻湾、赶海点务必<b>退潮时去、涨潮前撤</b>。8 月 13–16 日恰逢<b>农历月初大潮汛，潮差大、涨潮快</b>，别为了一张照片留在礁石上。手机装个潮汐 App，出发前查当日高低潮时间。</li>
+    <li><b>礁石全部湿滑。</b>必须穿<b>防滑运动鞋</b>，拖鞋和洞洞鞋在礁石上等于自残。</li>
+    <li><b>台风预警一响，所有海边活动立刻取消。</b>盯「中国平潭」「福建气象」公众号。</li>
+    <li><b>夜间追泪必须结伴 + 带头灯</b>，海滩无照明，远离水线，不要单独行动，不要在礁石上追。</li>
+  </ul>
+
+  <h3>🟠 二级：会毁掉体验的</h3>
+  <ul class="clean gold">
+    <li><b>防晒不是建议，是命令。</b>8 月平潭紫外线极强，海风会让你感觉不到晒，等发现时已经是二度晒伤。<b>高倍防晒霜（SPF50+，每 2 小时补涂）+ 防晒衣 + 宽檐帽 + 墨镜</b>，阴天也要涂。带晒后修复凝胶。</li>
+    <li><b>帽子必须有系带。</b>平潭常年大风，猴研岛和长江澳能把帽子直接吹进海里。</li>
+    <li><b>带一件薄防风外套。</b>白天 30℃+，但早晚和夜间海边体感明显偏凉，追泪时更冷。</li>
+    <li><b>补水补电。</b>8 人一天喝掉的水超乎想象，车上常备整箱矿泉水。每人一个充电宝（拍照极耗电）。</li>
+    <li><b>防蚊。</b>海边和村里蚊虫多，驱蚊液必带。</li>
+    <li><b>拖鞋自带。</b>岛上现买价格翻倍。</li>
+    <li><b>蓝眼泪看运气，摆正心态。</b>看到是赚到，看不到很正常。<b>不要买任何"包看到"的收费团</b>，那是骗局。</li>
+  </ul>
+
+  <h3>🟡 三级：8 人团的组织问题（最容易被忽略）</h3>
+  <ul class="clean">
+    <li><b>指定一个总决策人。</b>8 个人民主投票的结果就是每个决策拖 20 分钟，一天能白白浪费 2 小时。定一个人拍板，其他人服从。</li>
+    <li><b>建微信群 + 开实时位置共享。</b>景区人多容易走散，尤其北港村和夜市。</li>
+    <li><b>接受"分头行动"。</b>看日出、跳岛、爬将军山这类项目不必全员参加。强行捆绑只会让所有人都不痛快。</li>
+    <li><b>钱先 AA 到一个人手上</b>做公共账（车、门票、餐费），比每顿现场算账高效得多。</li>
+    <li><b>每天晚上花 5 分钟对第二天的出发时间</b>，并明确"过时不候"。</li>
+    <li><b>不值得去的</b>：海坛古城是人造商业街，只当买伴手礼的地方；象鼻湾没有无人机观感一般，涨潮期直接跳过。</li>
+  </ul>
+
+  <h3>🟢 杂项</h3>
+  <ul class="clean">
+    <li>国内游客<b>带身份证即可</b>，无需任何特殊手续。学生证、老年证、军人证带上，多个景点半价或免票。</li>
+    <li>去东庠岛等离岛<b>必须提前查轮渡班次</b>，风浪大会停航。</li>
+    <li>带<b>少量现金</b>，部分街边小摊和小村店铺不一定方便扫码。</li>
+    <li>景区门票能网上提前买就提前买（携程/同程/美团），部分需选时段入园。</li>
+    <li>伴手礼：<b>平潭紫菜、海鲜干货、鱼丸、鱼面</b>。紫菜是最实用的。</li>
+  </ul>
+</section>
+
+<!-- ============ 7. 预算 & 清单 ============ -->
+<section>
+  <h2><span class="num">7</span>预算测算 &amp; 打包清单</h2>
+
+  <h3>8 人 4 天 3 晚预算（不含往返大交通）</h3>
+  <div class="tbl">
+    <table>
+      <tr><th>项目</th><th>算法</th><th>合计</th><th>人均</th></tr>
+      <tr><td><b>住宿</b></td><td>4 间 × 3 晚 × ¥350（县城中档）</td><td>¥4,200</td><td>¥525</td></tr>
+      <tr><td><b>包车</b></td><td>3.5 天 × ¥900（含司机）</td><td>¥3,150</td><td>¥394</td></tr>
+      <tr><td><b>门票</b></td><td>仙人井 33 + 68 海里 66 + 机动 30 ≈ ¥130/人</td><td>¥1,040</td><td>¥130</td></tr>
+      <tr><td><b>餐饮</b></td><td>人均 ¥130/天 × 4 天 × 8 人</td><td>¥4,160</td><td>¥520</td></tr>
+      <tr><td><b>零杂</b></td><td>水、防晒、伴手礼、体验项目</td><td>¥1,600</td><td>¥200</td></tr>
+      <tr style="background:rgba(61,219,217,.07)"><td><b>合计</b></td><td>——</td><td><b style="color:var(--cyan)">约 ¥14,150</b></td><td><b style="color:var(--cyan)">约 ¥1,770</b></td></tr>
+    </table>
+  </div>
+  <p style="color:var(--txt3);font-size:12.5px;margin-top:9px">※ 均为估算区间。住县城 + 市场自购海鲜可压到人均 ¥1,300 左右；住海景民宿 + 顿顿排档会到 ¥2,500+。</p>
+
+  <h3>打包清单（照着装，别漏）</h3>
+  <div class="grid g3">
+    <div class="card">
+      <h4>☀️ 防晒三件套</h4>
+      <p>SPF50+ 防晒霜（大瓶，8 人共用要够）· 防晒衣/冰袖 · 宽檐帽（<b>带系带</b>）· 墨镜 · 晒后修复凝胶</p>
+    </div>
+    <div class="card">
+      <h4>👟 鞋与衣</h4>
+      <p><b>防滑运动鞋（必备，礁石专用）</b> · 沙滩拖鞋 · 泳衣 · 速干衣 · <b>薄防风外套</b> · 亮色/浅色出片装 · 换洗衣物（海边潮，多带一套）</p>
+    </div>
+    <div class="card">
+      <h4>💊 药品</h4>
+      <p><b>蒙脱石散 · 藿香正气 · 益生菌</b>（海鲜必备）· 晕车/晕船药 · 创可贴 · 驱蚊液 · 个人常用药 · 防过敏药</p>
+    </div>
+    <div class="card">
+      <h4>📱 电子</h4>
+      <p>充电宝（每人一个）· 多口插排 · <b>三脚架（追泪拍照唯一硬件门槛）</b> · 手机防水袋 · 数据线</p>
+    </div>
+    <div class="card">
+      <h4>🎒 杂物</h4>
+      <p>身份证 + 学生证/老年证 · 少量现金 · 保温/大容量水杯 · 湿巾纸巾 · 垃圾袋（装湿衣服和沙子）· 头灯或强光手电（追泪）</p>
+    </div>
+    <div class="card">
+      <h4>📲 App</h4>
+      <p>潮汐表 App · 高德/腾讯地图 · 携程/同程（订票）· 微信公众号「<b>中国平潭</b>」「<b>福建气象</b>」（台风与蓝眼泪播报）</p>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <b>信息时效说明</b>：门票、房价、包车价格、店铺营业状态均为 2026 年 8 月的公开参考信息，会随旺季浮动，<b>出行前请以景区官方公告和实时预订平台为准</b>。天气与台风信息以中央气象台、福建省气象台和「中国平潭」发布为准。<br>
+  猴研岛为祖国大陆距离中国台湾岛最近处（68 海里）。<br><br>
+  祝玩得尽兴。记得：<b>安全第一条，防晒第二条，剩下的随便玩。</b>
+</div>
+
+</div>
+</body>
+</html>
