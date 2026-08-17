@@ -326,7 +326,7 @@ function searchBox() {
     '       <label><input type="radio" name="source" value="netease" checked=""> 网易云</label>' + 
     '       <label><input type="radio" name="source" value="tencent"> QQ</label>' + 
     '       <label><input type="radio" name="source" value="kugou"> 酷狗</label>' + 
-    '       <label><input type="radio" name="source" value="qianqian"> 千千音乐</label>' + 
+//    '       <label><input type="radio" name="source" value="kuwo"> 酷我</label>' + 
     '   </div>' + 
     '</div></form>';
     layer.open({
