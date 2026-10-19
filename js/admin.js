@@ -81,7 +81,8 @@ function escapeAttr(s) { return s.replace(/"/g, '&quot;'); }
 
 function renderIcon(icon) {
   if (!icon) return '<span class="icon">🔗</span>';
-  if (icon.startsWith('data:image') || icon.startsWith('http'))
+  // 支持 data:、http(s)、相对/绝对路径及图片扩展名，统一按图片渲染
+  if (/^(data:|https?:|\/|\.\/|js\/)/i.test(icon) || /\.(png|jpe?g|gif|webp|svg|bmp|ico)$/i.test(icon))
     return `<span class="icon"><img src="${icon}" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;"></span>`;
   return `<span class="icon">${icon}</span>`;
 }
@@ -216,6 +217,142 @@ function copyExport() {
 
 function downloadBookmarksJS() {
   triggerDownload(`const bookmarks = ${JSON.stringify(bookmarks, null, 2)};`, 'bookmarks.js', 'text/javascript;charset=utf-8');
+}
+
+/* ----------------------------------------------------------------
+   优化导出：把内联 base64 图标拆分到 js/icons/，bookmarks.js 改为路径引用，
+   并打包成 zip（含 bookmarks.js + js/icons/*.png），解压到站根即可。
+   浏览器无法直接写本地目录，故采用下载 zip 的方式。
+---------------------------------------------------------------- */
+
+// 轻量字符串哈希（用于图标去重命名，无外部依赖）
+function cyrb53(str, seed = 0) {
+  let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+  for (let i = 0; i < str.length; i++) {
+    const ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+  h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+  h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (4294967296 * (2097151 & h2) + (h1 >>> 0));
+}
+
+// 纯 JS 生成 store 模式 zip（无压缩，零依赖，离线可用）
+function buildZip(files) {
+  const enc = new TextEncoder();
+  const crcTable = (() => {
+    const t = new Uint32Array(256);
+    for (let n = 0; n < 256; n++) {
+      let c = n;
+      for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+      t[n] = c >>> 0;
+    }
+    return t;
+  })();
+  const crc32 = buf => {
+    let c = 0xFFFFFFFF;
+    for (let i = 0; i < buf.length; i++) c = crcTable[(c ^ buf[i]) & 0xFF] ^ (c >>> 8);
+    return (c ^ 0xFFFFFFFF) >>> 0;
+  };
+
+  const chunks = [], central = [];
+  let offset = 0;
+  for (const f of files) {
+    const nameBytes = enc.encode(f.name);
+    const data = f.bytes;
+    const crc = crc32(data);
+    const size = data.length;
+
+    // 本地文件头
+    const lh = new Uint8Array(30 + nameBytes.length);
+    const dv = new DataView(lh.buffer);
+    dv.setUint32(0, 0x04034b50, true);
+    dv.setUint16(4, 20, true); dv.setUint16(6, 0, true); dv.setUint16(8, 0, true);
+    dv.setUint16(10, 0, true); dv.setUint16(12, 0, true);
+    dv.setUint32(14, crc, true);
+    dv.setUint32(18, size, true); dv.setUint32(22, size, true);
+    dv.setUint16(26, nameBytes.length, true); dv.setUint16(28, 0, true);
+    lh.set(nameBytes, 30);
+    chunks.push(lh, data);
+
+    // 中央目录记录
+    const ch = new Uint8Array(46 + nameBytes.length);
+    const cdv = new DataView(ch.buffer);
+    cdv.setUint32(0, 0x02014b50, true);
+    cdv.setUint16(4, 20, true); cdv.setUint16(6, 20, true);
+    cdv.setUint16(8, 0, true); cdv.setUint16(10, 0, true);
+    cdv.setUint16(12, 0, true); cdv.setUint16(14, 0, true);
+    cdv.setUint32(16, crc, true);
+    cdv.setUint32(20, size, true); cdv.setUint32(24, size, true);
+    cdv.setUint16(28, nameBytes.length, true);
+    cdv.setUint16(30, 0, true); cdv.setUint16(32, 0, true);
+    cdv.setUint16(34, 0, true); cdv.setUint16(36, 0, true);
+    cdv.setUint32(38, 0, true); cdv.setUint32(42, offset, true);
+    ch.set(nameBytes, 46);
+    central.push(ch);
+
+    offset += lh.length + data.length;
+  }
+
+  // 中央目录结尾
+  const centralSize = central.reduce((s, c) => s + c.length, 0);
+  const eocd = new Uint8Array(22);
+  const edv = new DataView(eocd.buffer);
+  edv.setUint32(0, 0x06054b50, true);
+  edv.setUint16(4, 0, true); edv.setUint16(6, 0, true);
+  edv.setUint16(8, files.length, true); edv.setUint16(10, files.length, true);
+  edv.setUint32(12, centralSize, true); edv.setUint32(16, offset, true);
+  edv.setUint16(20, 0, true);
+
+  const all = chunks.concat(central, [eocd]);
+  const total = all.reduce((s, c) => s + c.length, 0);
+  const out = new Uint8Array(total);
+  let p = 0;
+  for (const c of all) { out.set(c, p); p += c.length; }
+  return new Blob([out], { type: 'application/zip' });
+}
+
+function downloadOptimizedPackage() {
+  // 深拷贝，避免污染内存中的书签数据
+  const data = JSON.parse(JSON.stringify(bookmarks));
+  const iconMap = {};       // base64 原文 -> 路径
+  const iconFiles = [];     // {name, bytes}
+  const enc = new TextEncoder();
+
+  function takeIcon(icon) {
+    if (typeof icon !== 'string' || !icon.startsWith('data:image')) return icon;
+    const comma = icon.indexOf(',');
+    if (!/;base64/i.test(icon.slice(0, comma))) return icon;
+    const b64 = icon.slice(comma + 1);
+    if (iconMap[icon]) return iconMap[icon];
+    const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+    if (raw.length < 20) return icon;   // 非真实图片，保留原样
+    const name = 'js/icons/icon_' + cyrb53(b64).toString(16) + '.png';
+    iconMap[icon] = name;
+    iconFiles.push({ name, bytes: raw });
+    return name;
+  }
+
+  data.forEach(cat => {
+    cat.icon = takeIcon(cat.icon);
+    cat.items.forEach(it => { if (it[2]) it[2] = takeIcon(it[2]); });
+  });
+
+  const jsContent = `const bookmarks = ${JSON.stringify(data, null, 2)};`;
+  const files = [{ name: 'bookmarks.js', bytes: enc.encode(jsContent) }].concat(iconFiles);
+  const zipBlob = buildZip(files);
+  triggerDownload(zipBlob, 'bookmarks-optimized.zip', 'application/zip');
+  setTimeout(() => alert(
+    `已生成优化包 bookmarks-optimized.zip：\n\n` +
+    `• bookmarks.js（内联图标已替换为 js/icons/ 路径引用）\n` +
+    `• ${iconFiles.length} 个去重图标文件（js/icons/）\n\n` +
+    `使用方法：把 zip 解压到站点的根目录，覆盖 bookmarks.js 与 js/icons/ 即可。\n` +
+    `emoji / http 图标不受影响，保持原样。\n` +
+    `（旧 js/icons 中不再被引用的文件可手动删除以节省空间）`
+  ), 300);
 }
 
 function exportHTML() {

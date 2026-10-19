@@ -136,6 +136,11 @@
     </div>
     <button class="btn btn-primary export-btn" onclick="copyExport()">复制到剪贴板</button>
     <button class="btn btn-success export-btn" onclick="downloadBookmarksJS()">下载 bookmarks.js</button>
+    <button class="btn btn-warning export-btn" onclick="downloadOptimizedPackage()">下载优化包（图标拆分）</button>
+    <p class="export-hint" style="margin-top:10px;">
+      「下载优化包」会把内联 base64 图标拆成 <code>js/icons/*.png</code> 并打包成 zip（含瘦身后的 bookmarks.js），<br>
+      解压到站根目录覆盖即可，后续重生成无需再手动抽取。emoji / http 图标保持原样。
+    </p>
   </div>
 </div>
 
