@@ -24,17 +24,6 @@
   .topbar p{font-size:12px;color:var(--sec);margin-top:2px}
   .wrap{max-width:720px;margin:0 auto;padding:0 14px}
 
-  .quick{margin:14px 0;background:var(--surface);border:1px solid var(--border);
-    border-radius:var(--radius);overflow:hidden}
-  .quick-h{font-size:12px;font-weight:700;color:var(--sec);padding:10px 14px 6px;
-    text-transform:uppercase;letter-spacing:.05em}
-  .quick-scroll{display:flex;gap:8px;overflow-x:auto;padding:4px 14px 12px;
-    scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .quick-scroll::-webkit-scrollbar{display:none}
-  .qchip{flex:0 0 auto;background:var(--bg);border:1px solid var(--border2);
-    border-radius:10px;padding:8px 10px;min-width:120px}
-  .qchip .d{font-size:12px;font-weight:800;color:var(--accent);margin-bottom:3px}
-  .qchip .a{font-size:11px;color:var(--text);line-height:1.4}
 
   .sec{margin:22px 0 6px;display:flex;align-items:center;gap:8px}
   .sec .n{width:26px;height:26px;border-radius:50%;background:var(--accent);
@@ -67,7 +56,40 @@
   .ex .info{flex:1;min-width:0}
   .ex .name{font-size:14px;font-weight:600}
   .ex .name small{display:block;font-weight:400;color:var(--sec);font-size:12px}
-  .ex .rep{font-size:13px;color:var(--accent);font-weight:700;white-space:nowrap}
+  .ex .set{font-size:13px;color:var(--accent);font-weight:700;margin-top:2px;line-height:1.35}
+  .ex .rest{font-size:11px;color:var(--sec);font-weight:500;margin-top:2px;line-height:1.3}
+  .ex .ord{flex:0 0 auto;width:21px;height:21px;border-radius:50%;background:var(--accent);color:#fff;
+    font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .warm{margin:0 0 10px;padding:8px 10px;border-radius:10px;background:var(--accent-bg);
+    font-size:12.5px;color:#7c4a03;line-height:1.62}
+  .warm b{color:#92400e}
+  .restbar{margin:10px 0 2px;padding:8px 10px;border-radius:10px;background:#eff6ff;
+    font-size:12.5px;color:#1e40af;line-height:1.62}
+  .restbar b{color:#1e3a8a}
+  .ex .thumb.nodemo-thumb{display:flex;align-items:center;justify-content:center;
+    background:#fef3c7;color:#b45309;font-size:15px;font-weight:800}
+  .ex .play.nodemo-play{background:#fffbeb;color:#b45309;font-size:15px;cursor:default}
+  /* 小屏适配：序号+图+名称+组次+休息 在窄屏也不挤 */
+  @media (max-width:430px){
+    body{padding:12px 10px 10px}
+    .wrap{padding:0 8px}
+    .card,.daycard{padding:12px 12px}
+    .ex{gap:8px;padding:8px 0}
+    .ex .ord{width:18px;height:18px;font-size:10.5px}
+    .ex .thumb{width:48px;height:48px}
+    .ex .play{width:27px;height:27px;font-size:12px}
+    .ex .name{font-size:13.5px}
+    .ex .name small{font-size:11px}
+    .ex .set{font-size:12px}
+    .warm,.restbar{padding:7px 9px;font-size:12px}
+    .ex-note{padding:9px 10px}
+  }
+  @media (max-width:360px){
+    .ex .thumb{width:46px;height:46px}
+    .ex .set{font-size:12px}
+    .ex .rest{font-size:10px}
+  }
+  html,body{overflow-x:hidden}
   .ex .play{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--accent-bg);
     color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;
     font-weight:700;cursor:pointer;border:1px solid rgba(255,79,0,.2)}
@@ -92,13 +114,24 @@
   .kind.rest{color:var(--sec)} .kind.leg{color:var(--green)}
   .rest-note{font-size:14px;color:var(--sec);padding:4px 0}
 
-  .must{background:linear-gradient(180deg,#fff,#fff8f3);border:1px solid #ffd9c2;
-    border-radius:var(--radius);padding:14px 16px;margin-bottom:12px}
-  .must h3{font-size:15px;font-weight:800;color:var(--accent);margin-bottom:8px}
-  .must .grp{margin-bottom:10px} .must .grp:last-child{margin-bottom:0}
-  .must .grp-t{font-size:13px;font-weight:700;margin-bottom:4px}
-  .must ul{margin:0;padding-left:18px} .must li{font-size:13px;margin:3px 0}
 
+  /* set progress */
+  .sets{flex:0 0 auto;display:flex;align-items:flex-end;gap:4px;height:32px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;padding:0 0 0 2px;margin:0 0 0 4px;user-select:none}
+  .sets b{font-size:13px;font-weight:800;color:var(--sec);font-variant-numeric:tabular-nums;
+    min-width:12px;text-align:right;line-height:1;padding:0 4px 3px 0;transition:none}
+  .sets b.hot{color:var(--accent)}
+  .sets b.done{color:var(--green)}
+  .sets i{display:block;width:7px;height:13px;border-radius:3.5px;background:var(--border2);transition:none}
+  .sets i:nth-of-type(3),.sets i:nth-of-type(4){height:20px}
+  .sets i:nth-of-type(5),.sets i:nth-of-type(6){height:27px}
+  .sets i.on{background:var(--accent)}
+  .sets.full i.on{background:var(--green)}
+  .sets i.extra{background:var(--blue)}
+  .sets:active i.on{background:#c2410c}
+  .sets:active{opacity:.85}
+    .ex .thumb{cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .ex .ord{cursor:pointer;-webkit-tap-highlight-color:transparent}
   /* lightbox */
   .lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;display:none;
     flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;
@@ -129,58 +162,13 @@
 
 <div class="topbar">
   <h1>健身方案 · <b>带动作示范</b></h1>
-  <p>点 ▶ 看动画，照着做不练错 · 含康复 / 周计划 / 每日必做</p>
+  <p>点 ▶ 看动画，照着做不练错 · 含周计划 / 康复</p>
 </div>
 
 <div class="wrap">
 
-  <div class="quick">
-    <div class="quick-h">本周训练速查</div>
-    <div class="quick-scroll">
-      <div class="qchip"><div class="d">周一 · 推</div><div class="a">卧推 肩推 夹胸 侧平举 臂屈伸</div></div>
-      <div class="qchip"><div class="d">周二 · 有氧</div><div class="a">爬坡/骑行40-50分 + 足踝</div></div>
-      <div class="qchip"><div class="d">周三 · 拉</div><div class="a">引体 划船 下拉 面拉 弯举</div></div>
-      <div class="qchip"><div class="d">周四 · 休息</div><div class="a">慢走20分 + 只做康复</div></div>
-      <div class="qchip"><div class="d">周五 · 腿</div><div class="a">静蹲 台阶 罗马硬拉 提踵 深蹲</div></div>
-      <div class="qchip"><div class="d">周六 · 有氧</div><div class="a">骑行/爬坡50-60分 + 足踝</div></div>
-      <div class="qchip"><div class="d">周日 · 休息</div><div class="a">慢走30分 或 休息</div></div>
-    </div>
-  </div>
-
-  <!-- ④ 康复 -->
-  <div class="sec"><div class="n">4</div><h2>康复方案</h2><span class="tag">核心 · 每天做</span></div>
-  <div class="rule"><b>铁律：酸可以，痛不行（0-3分内），痛就撤，别硬撑。</b></div>
-
-  <div class="card">
-    <h3><span class="dot"></span>靠墙静蹲</h3>
-    <div class="sub">40~60秒 × 4组，组间休息60~90秒</div>
-    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>库里没有「靠墙静蹲」精确示范，按文字做——脚后跟发力，膝朝脚尖、背贴墙不塌；酸就停、痛就撤。</div></div>
-    <ul class="tips">
-      <li>角度停在「大腿酸」的位置（约105°→往90°渐进）</li>
-      <li><b>脚后跟发力</b>（正确，保持）</li>
-      <li class="warn">停止信号：酸=停，膝盖上方痛=立刻停</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot"></span>缓慢下蹲（离心）</h3>
-    <div class="sub">4~5秒慢慢蹲下（无痛幅度），1秒起来</div>
-    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>按文字做——4~5秒慢下、1秒快起；膝朝脚尖、臀往后坐、背挺直（无痛幅度内）。</div></div>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot"></span>股四头肌拉伸</h3>
-    <div class="sub">站姿抓脚踝往后拉 · 30秒 × 3组</div>
-    <p class="note">※ 动作库无此拉伸示范，按文字操作：单脚站立，对侧手抓脚踝拉向臀部，膝朝下不外翻，髋不前倾。</p>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot"></span>扁平足修复（已在做，保留）</h3>
-    <div class="sub">抓毛巾、提踵、弹力带足外翻；配足弓支撑鞋垫</div>
-  </div>
-
   <!-- ⑤ 一周 -->
-  <div class="sec"><div class="n">5</div><h2>一周运动方案</h2><span class="tag">力量4 + 有氧2 + 休息1</span></div>
+  <div class="sec"><h2>一周运动方案</h2><span class="tag">力量4 + 有氧2 + 休息1</span></div>
 
   <div class="daynav" id="daynav">
     <button class="dbtn on" data-d="d1">周一<small>推</small></button>
@@ -194,26 +182,33 @@
 
   <div class="daycard" id="d1">
     <h3>周一 · 推（胸/肩/三头）</h3><div class="kind">力量日</div>
+    <div class="warm"><b>热身 8~10分钟：</b>快走/椭圆5分钟 → 肩绕环+弹力带外旋各15 → 卧推空杆 2组，每组 15 次（激活胸肩三头）</div>
+    <div class="warm" style="background:#f0fdf4"><b>组间休息原则：</b>大肌群复合动作（卧推/引体/划船/硬拉）休 90~120秒；孤立动作（弯举/侧平举/提踵）休 45~60秒。每组留 2~3 次余量（RPE 7~8），别每组都练到力竭。</div>
 
     <div class="ex" data-gif="videos/0025-EIeI8Vf.gif" data-jpg="images/0025-EIeI8Vf.jpg" data-cap="杠铃/哑铃卧推" data-cue="杠落胸下沿，肩收紧不耸，杠过胸前推起。">
+      <div class="ord">1</div>
       <img class="thumb" src="images/0025-EIeI8Vf.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">杠铃/哑铃卧推</div></div><div class="rep">4×8~10</div><div class="play">▶</div>
+      <div class="info"><div class="name">杠铃/哑铃卧推</div><div class="set">4组，每组 8~10 次</div><div class="rest">组间休 90~120秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/0405-znQUdHY.gif" data-jpg="images/0405-znQUdHY.jpg" data-cap="哑铃坐姿肩推" data-cue="核心收紧不塌腰，推到顶不锁死肘。">
+      <div class="ord">2</div>
       <img class="thumb" src="images/0405-znQUdHY.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">哑铃坐姿肩推</div></div><div class="rep">4×10</div><div class="play">▶</div>
+      <div class="info"><div class="name">哑铃坐姿肩推</div><div class="set">4组，每组 10 次</div><div class="rest">组间休 90秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/0308-yz9nUhF.gif" data-jpg="images/0308-yz9nUhF.jpg" data-cap="龙门架夹胸（哑铃飞鸟示意）" data-cue="肘微屈固定，靠胸收不靠手甩。">
+      <div class="ord">3</div>
       <img class="thumb" src="images/0308-yz9nUhF.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">龙门架夹胸</div></div><div class="rep">3×12</div><div class="play">▶</div>
+      <div class="info"><div class="name">龙门架夹胸</div><div class="set">3组，每组 12 次</div><div class="rest">组间休 60秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/0334-DsgkuIt.gif" data-jpg="images/0334-DsgkuIt.jpg" data-cap="哑铃侧平举" data-cue="小臂略内旋，肩发力不耸肩。">
+      <div class="ord">4</div>
       <img class="thumb" src="images/0334-DsgkuIt.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">哑铃侧平举</div></div><div class="rep">3×15</div><div class="play">▶</div>
+      <div class="info"><div class="name">哑铃侧平举</div><div class="set">3组，每组 15 次</div><div class="rest">组间休 45~60秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/0333-W6PxUkg.gif" data-jpg="images/0333-W6PxUkg.jpg" data-cap="哑铃俯身臂屈伸" data-cue="大臂贴身不动，只动小臂向后。">
+      <div class="ord">5</div>
       <img class="thumb" src="images/0333-W6PxUkg.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">哑铃俯身臂屈伸</div></div><div class="rep">3×12</div><div class="play">▶</div>
+      <div class="info"><div class="name">哑铃俯身臂屈伸</div><div class="set">3组，每组 12 次</div><div class="rest">组间休 45~60秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
   </div>
 
@@ -221,34 +216,43 @@
     <h3>周二 · 有氧 + 足踝强化</h3><div class="kind">有氧日</div>
     <ul class="tips">
       <li>爬坡15° 或 骑行，40~50分钟，中低强度</li>
+      <li>强度：能边练边短句说话、微喘但不憋气（心率约 110~135，或 RPE 5~6）</li>
       <li>足踝强化：抓毛巾20 + 提踵20 + 弹力带足外翻15</li>
     </ul>
+    <div class="restbar"><b>开始前：</b>先慢走/慢骑 5分钟热身；结束后拉伸小腿+股四头 各2组，每组 30 秒。做完不酸不喘=太轻，下周加5分钟。</div>
   </div>
 
   <div class="daycard hidden" id="d3">
     <h3>周三 · 拉（背/二头）<span style="color:var(--warn);font-size:12px">★ 主项引体</span></h3>
     <div class="kind">力量日 · 你的强项</div>
+    <div class="warm"><b>热身 8~10分钟：</b>快走/椭圆5分钟 → 肩胛下沉激活 10 次 → 高位下拉轻重量 2组，每组 15 次 → 悬垂30秒（激活背）</div>
+    <div class="warm" style="background:#f0fdf4"><b>组间休息原则：</b>大肌群复合动作（卧推/引体/划船/硬拉）休 90~120秒；孤立动作（弯举/侧平举/提踵）休 45~60秒。每组留 2~3 次余量（RPE 7~8），别每组都练到力竭。</div>
 
     <div class="ex" data-gif="videos/0652-lBDjFxJ.gif" data-jpg="images/0652-lBDjFxJ.jpg" data-cap="引体向上（7→冲10）" data-cue="肩胛下沉再拉，胸口找杠不过度后仰。">
+      <div class="ord">1</div>
       <img class="thumb" src="images/0652-lBDjFxJ.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">引体向上</div><div class="name"><small>7→冲10</small></div></div><div class="rep">4×尽力</div><div class="play">▶</div>
+      <div class="info"><div class="name">引体向上</div><div class="name"><small>7→冲10</small></div><div class="set">4组，每组做到力竭</div><div class="rest">组间休 120秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/0027-eZyBC3j.gif" data-jpg="images/0027-eZyBC3j.jpg" data-cap="杠铃/哑铃划船" data-cue="背挺直不圆肩，拉到腹不甩身。">
+      <div class="ord">2</div>
       <img class="thumb" src="images/0027-eZyBC3j.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">杠铃/哑铃划船</div></div><div class="rep">4×10</div><div class="play">▶</div>
+      <div class="info"><div class="name">杠铃/哑铃划船</div><div class="set">4组，每组 10 次</div><div class="rest">组间休 90~120秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
-    <div class="ex" data-gif="videos/2330-LEprlgG.gif" data-jpg="images/2330-LEprlgG.gif" data-cap="龙门架高位下拉" data-cue="挺胸沉肩，拉到锁骨不过后仰。">
-      <img class="thumb" src="images/2330-LEprlgG.gif" alt="" loading="lazy">
-      <div class="info"><div class="name">龙门架高位下拉</div></div><div class="rep">4×12</div><div class="play">▶</div>
+    <div class="ex" data-gif="videos/2330-LEprlgG.gif" data-jpg="images/2330-LEprlgG.jpg" data-cap="龙门架高位下拉" data-cue="挺胸沉肩，拉到锁骨不过后仰。">
+      <div class="ord">3</div>
+      <img class="thumb" src="images/2330-LEprlgG.jpg" alt="" loading="lazy">
+      <div class="info"><div class="name">龙门架高位下拉</div><div class="set">4组，每组 12 次</div><div class="rest">组间休 90秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-type="video" data-key="facepull" data-video="https://player.bilibili.com/player.html?bvid=BV1o8411676B&amp;page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0" data-cap="面拉 Face Pull · 视频示范" data-cue="绳索调至面部高度，肘领先拉向额头，末端外旋成W形夹后束。">
+      <div class="ord">4</div>
       <div class="thumb vthumb">▶</div>
-      <div class="info"><div class="name">面拉 Face Pull</div><div class="name"><small>视频示范 · 3×15</small></div></div><div class="rep">3×15</div><div class="play">▶</div>
+      <div class="info"><div class="name">面拉 Face Pull</div><div class="name"><small>视频示范</small></div><div class="set">3组，每组 15 次</div><div class="rest">组间休 45~60秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <p class="note">※ 面拉示范视频以 Bilibili 为准；若无法播放，备用：<a href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_3980484426927996484" target="_blank" rel="noopener">Baidu 视频链接</a></p>
     <div class="ex" data-gif="videos/0294-NbVPDMW.gif" data-jpg="images/0294-NbVPDMW.jpg" data-cap="哑铃弯举" data-cue="大臂贴身，只屈肘不晃身。">
+      <div class="ord">5</div>
       <img class="thumb" src="images/0294-NbVPDMW.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">哑铃弯举</div></div><div class="rep">3×12</div><div class="play">▶</div>
+      <div class="info"><div class="name">哑铃弯举</div><div class="set">3组，每组 12 次</div><div class="rest">组间休 45~60秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
   </div>
 
@@ -260,33 +264,46 @@
   <div class="daycard hidden" id="d5">
     <h3>周五 · 腿（重点补课）<span style="color:var(--warn);font-size:12px">★ 康复优先</span></h3>
     <div class="kind leg">力量日 · 补腿</div>
+    <div class="warm"><b>热身 8~10分钟：</b>骑行/快走8分钟 → 髋绕环 → 徒手臀桥 2组，每组 15 次 → 靠墙静蹲 1组 30 秒（先热开膝盖，痛就减）</div>
+    <div class="warm" style="background:#f0fdf4"><b>组间休息原则：</b>大肌群复合动作（卧推/引体/划船/硬拉）休 90~120秒；孤立动作（弯举/侧平举/提踵）休 45~60秒。每组留 2~3 次余量（RPE 7~8），别每组都练到力竭。</div>
 
-    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>靠墙静蹲是康复主项，按文字做——脚后跟发力，膝朝脚尖、背贴墙不塌；酸就停、痛就撤（3×45秒）。</div></div>
-    <div class="ex" data-gif="videos/0114-Kxquu2E.gif" data-jpg="images/0114-Kxquu2E.gif" data-cap="台阶下蹲离心（慢下快上）" data-cue="慢下控制，前脚全掌踩实。">
+    <div class="ex">
+      <div class="ord">1</div>
+      <div class="thumb nodemo-thumb">文</div>
+      <div class="info"><div class="name">靠墙静蹲<small>康复主项 · 库里无示范</small></div><div class="set">3组，每组 45 秒</div><div class="rest">组间休 60~90秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play nodemo-play" title="无示范，按文字做">文</div>
+    </div>
+    <div class="warm" style="background:#fffbeb"><b>做法：</b>脚后跟发力，膝朝脚尖、背贴墙不塌；蹲到屈膝约105°即可，别刻意往130°推。酸就停、痛就撤；当日膝痛 &gt;3分（10分制）或次日加重就减量/停。</div>
+    <div class="ex" data-gif="videos/0114-Kxquu2E.gif" data-jpg="images/0114-Kxquu2E.jpg" data-cap="台阶下蹲离心（慢下快上）" data-cue="慢下控制，前脚全掌踩实。">
+      <div class="ord">2</div>
       <img class="thumb" src="images/0114-Kxquu2E.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">台阶下蹲离心</div><div class="name"><small>慢下快上</small></div></div><div class="rep">3×10</div><div class="play">▶</div>
+      <div class="info"><div class="name">台阶下蹲离心</div><div class="name"><small>慢下快上</small></div><div class="set">3组，每组 10 次</div><div class="rest">组间休 90秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/0085-wQ2c4XD.gif" data-jpg="images/0085-wQ2c4XD.jpg" data-cap="罗马尼亚硬拉 / 臀桥" data-cue="微屈膝，髋后推，背平直不圆。">
+      <div class="ord">3</div>
       <img class="thumb" src="images/0085-wQ2c4XD.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">罗马尼亚硬拉</div></div><div class="rep">4×12</div><div class="play">▶</div>
+      <div class="info"><div class="name">罗马尼亚硬拉</div><div class="set">4组，每组 12 次</div><div class="rest">组间休 90~120秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/3013-u0cNiij.gif" data-jpg="images/3013-u0cNiij.jpg" data-cap="臀桥" data-cue="顶髋夹臀，肩-髋-膝一线。">
+      <div class="ord">4</div>
       <img class="thumb" src="images/3013-u0cNiij.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">臀桥</div></div><div class="rep">4×12</div><div class="play">▶</div>
+      <div class="info"><div class="name">臀桥</div><div class="set">4组，每组 12 次</div><div class="rest">组间休 60~90秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
     <div class="ex" data-gif="videos/1372-8ozhUIZ.gif" data-jpg="images/1372-8ozhUIZ.jpg" data-cap="单腿提踵" data-cue="慢起慢落，脚尖朝前不外翻。">
+      <div class="ord">5</div>
       <img class="thumb" src="images/1372-8ozhUIZ.jpg" alt="" loading="lazy">
-      <div class="info"><div class="name">单腿提踵</div></div><div class="rep">4×15</div><div class="play">▶</div>
+      <div class="info"><div class="name">单腿提踵</div><div class="set">4组，每组 15 次</div><div class="rest">组间休 45秒</div></div><div class="sets" data-n="0" title="点一下 记1组"><b class="cnt">0</b><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="play">▶</div>
     </div>
-    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>库里没有标准深蹲示范，按文字做——膝朝脚尖、臀后坐、背挺直，在无痛幅度内做半程（3×10）。</div></div>
+    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>库里没有标准深蹲示范，按文字做——膝朝脚尖、臀后坐、背挺直，在无痛幅度内做半程（3组，每组 10 次）。</div></div>
   </div>
 
   <div class="daycard hidden" id="d6">
     <h3>周六 · 有氧 + 足踝强化</h3><div class="kind">有氧日</div>
     <ul class="tips">
       <li>骑行 或 爬坡15°，50~60分钟（你的强项，别丢）</li>
+      <li>强度：中低强度，能说话不喘到说不出（心率约 110~135，或 RPE 5~6）；想冲就最后10分钟提一点</li>
       <li>足踝强化：抓毛巾20 + 提踵20 + 弹力带足外翻15</li>
     </ul>
+    <div class="restbar"><b>开始前：</b>慢骑/慢走 5分钟热身；结束后小腿+股四头+髋前侧各拉 2组，每组 30 秒。</div>
   </div>
 
   <div class="daycard hidden" id="d7">
@@ -294,20 +311,39 @@
     <p class="rest-note">慢走30分钟 或 完全休息；只做康复 + 足踝强化。</p>
   </div>
 
-  <!-- ⑥ 每天必做 -->
-  <div class="sec"><div class="n">6</div><h2>每天必做</h2><span class="tag">雷打不动</span></div>
-  <div class="must">
-    <h3>康复三件套（每天10分钟）</h3>
-    <div class="grp"><div class="grp-t">1. 靠墙静蹲</div><ul><li>40~60秒 × 4组（酸停、痛撤）</li></ul></div>
-    <div class="grp"><div class="grp-t">2. 缓慢下蹲</div><ul><li>4~5秒下、10次 × 3组</li></ul></div>
-    <div class="grp"><div class="grp-t">3. 股四头肌拉伸</div><ul><li>30秒 × 3组</li></ul></div>
-  </div>
-  <div class="must">
-    <h3>足踝强化（每天5分钟，治扁平足）</h3>
-    <ul><li>抓毛巾 20次</li><li>提踵 20次</li><li>弹力带足外翻 15次</li></ul>
+  <!-- ④ 康复 -->
+  <div class="sec"><h2>康复方案</h2><span class="tag">核心 · 每天做</span></div>
+  <div class="rule"><b>铁律：酸可以，痛不行（0-3分内），痛就撤，别硬撑。</b></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>靠墙静蹲</h3>
+    <div class="sub">4组，每组 40~60 秒，组间休息 60~90 秒</div>
+    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>库里没有「靠墙静蹲」精确示范，按文字做——脚后跟发力，膝朝脚尖、背贴墙不塌；酸就停、痛就撤。</div></div>
+    <ul class="tips">
+      <li>角度停在「大腿酸」的位置（约105°→往90°渐进）</li>
+      <li><b>脚后跟发力</b>（正确，保持）</li>
+      <li class="warn">停止信号：酸=停，膝盖上方痛=立刻停</li>
+    </ul>
   </div>
 
-  <footer>动作示范取自本地训练库（1324个动作）· 面拉为视频示范 · 仅含 康复/周计划/每日必做 · 科学 · 可持续 · 不反弹</footer>
+  <div class="card">
+    <h3><span class="dot"></span>缓慢下蹲（离心）</h3>
+    <div class="sub">3组，每组 10 次（每次 4~5 秒慢慢蹲下，1 秒起来；无痛幅度内）</div>
+    <div class="ex-note"><div class="ic">⚠</div><div class="tx"><b>无动作示范：</b>按文字做——4~5秒慢下、1秒快起；膝朝脚尖、臀往后坐、背挺直（无痛幅度内）。</div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>股四头肌拉伸</h3>
+    <div class="sub">站姿抓脚踝往后拉 · 3组，每组 30 秒</div>
+    <p class="note">※ 动作库无此拉伸示范，按文字操作：单脚站立，对侧手抓脚踝拉向臀部，膝朝下不外翻，髋不前倾。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>扁平足修复（已在做，保留）</h3>
+    <div class="sub">抓毛巾、提踵、弹力带足外翻；配足弓支撑鞋垫</div>
+  </div>
+
+  <footer>动作示范取自本地训练库（1324个动作）· 面拉为视频示范 · 仅含 周计划/康复 · 科学 · 可持续 · 不反弹</footer>
 </div>
 
 <!-- lightbox -->
@@ -353,7 +389,7 @@
     '0085':'双脚与肩同宽站立，脚尖朝前。正握杠铃，握距略宽于肩。髋部前屈，保持背部挺直、膝盖微屈。将杠铃沿身体下放靠近身体，向地面方向。下放时感受腘绳肌的拉伸。一旦感受到腘绳肌拉伸，向前顶髋站直。在顶端挤压臀部。将杠铃降回起始位置并重复。',
     '3013':'仰卧，膝盖弯曲、双脚平放地面。双臂放在身体两侧，掌心朝下。收紧臀部和核心，将髋部抬离地面，直到身体从膝到肩成一条直线。在顶端停顿并挤压臀部。缓慢将髋部降回起始位置。重复至目标次数。',
     '1372':'双脚与肩同宽站立，杠铃横置于上背部。仅用脚尖将脚跟尽量抬高离地。在顶端停顿一下，再缓慢将脚跟降回起始位置。重复至目标次数。',
-    'facepull':'面拉（Face Pull）完整动作要领：①将龙门架绳索调至面部高度（或略高于眼睛）；②装上绳索把手，双手分握绳两端，掌心相对（中立握）；③向后退一步拉出张力，双脚与肩同宽或前后弓步站，核心收紧、躯干几乎直立；④以肘部领先，将绳索拉向面部/额头，肘部保持高且外展（约肩高或略高）；⑤拉到末端时双手向外旋，前臂向上、手在耳侧，呈W形，挤压后束与中下斜方肌；⑥顶端停顿1秒，再缓慢（2至3秒）有控制地放回。要点：重量要轻、次数要高（3×12至15）；肩不耸起、躯干不后仰借力；肘部始终高且宽；拉到面部而非胸口（否则变成划船）。'
+    'facepull':'面拉（Face Pull）完整动作要领：①将龙门架绳索调至面部高度（或略高于眼睛）；②装上绳索把手，双手分握绳两端，掌心相对（中立握）；③向后退一步拉出张力，双脚与肩同宽或前后弓步站，核心收紧、躯干几乎直立；④以肘部领先，将绳索拉向面部/额头，肘部保持高且外展（约肩高或略高）；⑤拉到末端时双手向外旋，前臂向上、手在耳侧，呈W形，挤压后束与中下斜方肌；⑥顶端停顿1秒，再缓慢（2至3秒）有控制地放回。要点：重量要轻、次数要高（3组，每组 12~15 次）；肩不耸起、躯干不后仰借力；肘部始终高且宽；拉到面部而非胸口（否则变成划船）。'
   };
   function openLb(el){
     const media=document.getElementById('lb-media');
@@ -371,7 +407,55 @@
   }
   function closeLb(){ lb.classList.remove('open'); document.getElementById('lb-media').innerHTML=''; }
   document.querySelectorAll('.ex').forEach(ex=>{
+    if(!ex.dataset.gif && !ex.dataset.video){ ex.style.cursor='default'; return; }
     ex.addEventListener('click',()=>openLb(ex));
+  });
+  // ---- 组数进度：点序号/缩略图/进度条 = 记1组；达到该动作规定组数即变绿 ----
+  const SET_MAX=6;
+  const _d=new Date();
+  const _dk=_d.getFullYear()+'-'+(_d.getMonth()+1)+'-'+_d.getDate();
+  const _sk='xlsets_'+_dk;
+  function loadSets(){ try{ return JSON.parse(localStorage.getItem(_sk)||'{}'); }catch(e){ return {}; } }
+  function saveSets(){ try{ localStorage.setItem(_sk,JSON.stringify(SETS)); }catch(e){} }
+  let SETS=loadSets();
+  document.querySelectorAll('.ex').forEach(function(ex){
+    const bar=ex.querySelector('.sets'); if(!bar) return;
+    const ordEl=ex.querySelector('.ord');
+    const card=ex.closest('.daycard');
+    const id=(card?card.id:'x')+'_'+(ordEl?ordEl.textContent.trim():'0');
+    // 从该行“N组，每组…”读出规定组数，读不到就按 6 组
+    const setTxt=(ex.querySelector('.set')||{}).textContent||'';
+    const mt=setTxt.match(/(\d+)\s*组/);
+    const target=mt?Math.max(1,Math.min(SET_MAX,parseInt(mt[1],10))):SET_MAX;
+    bar.dataset.target=target;
+    function render(){
+      const n=SETS[id]||0;
+      bar.dataset.n=n;
+      Array.prototype.forEach.call(bar.querySelectorAll('i'),function(seg,i){
+        seg.classList.toggle('on', i<n && i<target);       // 计划内的已完成
+        seg.classList.toggle('extra', i<n && i>=target);   // 超出计划的加练，同样高亮
+      });
+      bar.classList.toggle('full',n>=target);
+      const cnt=bar.querySelector('.cnt');
+      if(cnt){
+        cnt.textContent=n;
+        cnt.classList.toggle('hot', n>0 && n<target);
+        cnt.classList.toggle('done', n>=target);
+      }
+      bar.title=n>=SET_MAX?('已完成 '+n+' 组，点一下清零')
+                          :('目标 '+target+' 组，已完成 '+n+' 组，点一下 +1');
+    }
+    function bump(){
+      const n=SETS[id]||0;
+      SETS[id]=(n>=SET_MAX)?0:Math.min(SET_MAX,n+1);
+      saveSets(); render();
+    }
+    render();
+    [bar,ordEl,ex.querySelector('.thumb')].forEach(function(el){
+      if(!el) return;
+      el.addEventListener('click',function(ev){ ev.stopPropagation(); ev.preventDefault(); bump(); });
+    });
+    bar.addEventListener('dblclick',function(ev){ ev.stopPropagation(); SETS[id]=0; saveSets(); render(); });
   });
   document.getElementById('lb-close').addEventListener('click',closeLb);
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
